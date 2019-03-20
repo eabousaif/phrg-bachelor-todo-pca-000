@@ -48,14 +48,26 @@ def get_occupation(data, hometown)
 end
 
 def get_average_age_for_season(data, season)
-  counter = 0
-
+  ages = []
   data[season].each do |info|
-    info.each do |key, value|
-      if key == age
-        counter+=1
+    info.map do |key, value|
+      if key == "age"
+        ages << value.to_i
       end
     end
   end
-  age/counter
+  (ages.sum.to_f / ages.length).round
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
